@@ -22,7 +22,7 @@ test('Home Page Screenshot', async ({page}) => {
 
     await expect(page.getByRole('button', { name: 'Login'})).toBeVisible();
 
-    await page.screenshot({ path: 'HomePageScreenshot.png', fullPage: true });
+    await page.screenshot({ path: 'Screenshot/HomePageScreenshot.png', fullPage: true });
 
 });
 
