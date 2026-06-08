@@ -17,3 +17,12 @@ test('Verify login button is visible', async ({page}) => {
 
 });    
 
+test('Home Page Screenshot', async ({page}) => {
+    await page.goto('*/');
+
+    await expect(page.getByRole('button', { name: 'Login'})).toBeVisible();
+
+    await page.screenshot({ path: 'HomePageScreenshot.png', fullPage: true });
+
+});
+
