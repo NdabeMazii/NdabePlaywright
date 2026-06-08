@@ -9,14 +9,11 @@ test('Launch Ndosi Dev Url', async ({page}) => {
 test('Verify login button is visible', async ({page}) => {
     await page.goto('*/');
     
-    const loginButton = page.locator('button:text-is("Login")');
+    const loginButton = await page.getByRole('button', { name: 'Login'}).isVisible();
 
-    await page.waitForTimeout(5000);
+    console.log("Login Button is visible:" + loginButton)
 
-    //await loginButton.isVisible();
+    await expect(page.getByRole('button', { name: 'Login'})).toBeVisible();
 
-    console.log(loginButton);
-
-    //expect(await loginButton.isVisible()).toBe(true);
 });    
 
