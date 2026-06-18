@@ -6,6 +6,7 @@ export class BasePage {
         this.page = page;
     }
 
+    //create resusable methods
     async basePageGoToUrl(url: string) {
         await this.page.goto(url);
     }
