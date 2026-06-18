@@ -7,3 +7,4 @@ test('Positive login - Admin', async({ loginPage, homePage }) => {
     await loginPage.navigateToLoginPage();
     await loginPage.userLogin(validUsers.admin.username, validUsers.admin.password);
 });
+

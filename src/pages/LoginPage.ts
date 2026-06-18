@@ -14,7 +14,7 @@ export class LoginPage extends BasePage {
 
     async userLogin(username: string, password: string) {
         await this.basePageEnterText(this.page.locator('#login-email'), username);
-        await this.basePageEnterText(this.page.locator('#login-passwod '), password);
+        await this.basePageEnterText(this.page.locator('#login-password '), password);
         await this.basePageClickElement(this.page.locator('xpath=//*[@id="login-submit"]'));
     }
 }
