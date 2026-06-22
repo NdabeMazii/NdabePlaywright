@@ -15,9 +15,16 @@ export class BasePage {
         await element.click();
     }
 
-    async basePageEnterText(element: Locator, text: string) {
-        await element.fill(text);
+    async basePageEnterText(locator: Locator, text: string) {
+        await locator.clear();
+        await locator.fill(text);
     }
+
+
+    async basePageGetTextBoxValue(locator: Locator): Promise<string> {
+        return await locator.inputValue();
+    }
+
 
     async basePageVerifyElementIsVisible(element: Locator) {
         await expect(element).toBeVisible();
