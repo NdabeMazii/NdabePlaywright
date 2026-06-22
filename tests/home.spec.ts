@@ -12,7 +12,7 @@ test.describe('Instructor Panel Functionality', () => {
         await homePage.navigateToInstructorPanel();
     });
 
-        test('Update user profile', async ({ loginPage, homePage, userProfilePage }) => {
+        test.only('Update user profile', async ({ loginPage, homePage, userProfilePage }) => {
         await loginPage.basePageGoToUrl('*/');
         await loginPage.navigateToLoginPage();
         await loginPage.userLogin(validUsers.classUser.username, validUsers.classUser.password);

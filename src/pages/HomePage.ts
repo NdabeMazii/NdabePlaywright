@@ -18,6 +18,6 @@ export class HomePage extends BasePage {
 
     async navigateToUserProfile() {
         await this.basePageClickElement(this.page.getByRole('button', { name: 'Menu' }));
-        await this.basePageClickElement(this.page.locator("//button[@class='nav-dropdown-item']//span[contains(text(),'User Profile')]"));
+        await this.basePageClickElement(this.page.locator("//span[normalize-space()='My Profile']"));
     }
 }
