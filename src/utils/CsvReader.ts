@@ -1,6 +1,7 @@
 import fs from 'fs';
 import {parse} from 'csv-parse/sync';
 
+
 export interface CsvRecord {
     [key: string]: string;
 }
@@ -11,6 +12,6 @@ export function readCsv(filePath: string): CsvRecord[] {
     return parse(fileContent, {
         columns: true,
         skip_empty_lines: true,
-        delimiter: ';' //add if your csv has used a different delimiter
+        delimiter:  ';' //add if your csv has/ used a different delimiter
     });
 }

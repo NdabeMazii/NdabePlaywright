@@ -1,5 +1,6 @@
 import {expect, test} from '../src/fixtures/CustomFixtures';
 import {validUsers} from "../src/data/TestData";
+import { readCsv } from '../src/utils/CsvReader';  
 
 
 test.describe('Instructor Panel Functionality', () => {
@@ -25,3 +26,14 @@ test.describe('Instructor Panel Functionality', () => {
         await userProfilePage.verifyProfile(validUsers.classUser.gitUsername);
     });
 });
+
+const users = readCsv('src/data/PlaywrightTest.csv');
+
+for (const user of users) {
+    test(`Open user profile page for ${user.Username}`, async ({loginPage, homePage, page}) => {
+        await loginPage.performFullLogin(user.Username, user.Password);  
+        await homePage.navigateToUserProfile();   
+
+        // await expect(page.getByRole('heading', )
+    });
+};
