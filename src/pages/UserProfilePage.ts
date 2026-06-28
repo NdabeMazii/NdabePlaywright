@@ -18,12 +18,14 @@ export class UserProfilePage extends BasePage {
     }
 
     async verifyProfile(gitUsername: string) {
-        const actualGitUsername = await this.basePageGetTextBoxValue(this.page.locator('xpath = //a[@href="https://github.com/ggg"] '));
-        console.log(`Actual GitUsername: ${actualGitUsername}`);
-        if (actualGitUsername === gitUsername) {
-            console.log('Github username incorrect, expected: ${gitUsername}');
-        }
-            else {
+        const profileLink = this.page.getByRole('link', { name: `🐙 ${gitUsername}` });
+        const actualGitUsername = await profileLink.textContent();
+        const normalizedActual = actualGitUsername?.trim() ?? '';
+
+        console.log(`Actual GitUsername: ${normalizedActual}`);
+        if (normalizedActual !== `🐙 ${gitUsername}`) {
+            console.log(`Github username incorrect, expected: 🐙 ${gitUsername}`);
+        } else {
             console.log('Github username is correct');
         }
     }

@@ -8,7 +8,7 @@ test.describe('Instructor Panel Functionality', () => {
         // await loginPage.basePageGoToUrl('*/');
         // await loginPage.navigateToLoginPage();
         // await loginPage.userLogin(validUsers.classUser.username, validUsers.classUser.password);
-        await loginPage.performFullLogin(validUsers.classUser.username, validUsers.classUser.password);
+        await loginPage.performFullLogin(validUsers.admin.username, validUsers.admin.password);
         await homePage.verifyHomePageIsDisplayed();
         await homePage.navigateToInstructorPanel();
     });
@@ -17,11 +17,11 @@ test.describe('Instructor Panel Functionality', () => {
         // await loginPage.basePageGoToUrl('*/');
         // await loginPage.navigateToLoginPage();
         // await loginPage.userLogin(validUsers.classUser.username, validUsers.classUser.password);
-        await loginPage.performFullLogin(validUsers.admin.username, validUsers.admin.password);
+        await loginPage.performFullLogin(validUsers.classUser.username, validUsers.classUser.password);
         await homePage.verifyHomePageIsDisplayed();
         await homePage.navigateToUserProfile();
         await userProfilePage.verifyUserProfileIsDisplayed();
-        await userProfilePage.editUserProfile(validUsers.admin.gitUsername);
-        await userProfilePage.verifyProfile(validUsers.admin.gitUsername);
+        await userProfilePage.editUserProfile(validUsers.classUser.gitUsername);
+        await userProfilePage.verifyProfile(validUsers.classUser.gitUsername);
     });
 });
